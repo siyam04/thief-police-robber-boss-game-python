@@ -18,10 +18,10 @@ points = {
 }
 
 # shuffling keys randomly
-items = list(points.items())
-random.shuffle(items)
+data = list(points.items())
+random.shuffle(data)
 
-for key, value in items:
+for key, value in data:
     print('{}: {}'.format(key, value))
     # print('\n')
 
@@ -33,14 +33,31 @@ process = 4
 
 while process <= 4:
     try:
+        # main input
         input_1 = int(input('\nEnter a Number: '))
 
+        # check garbage input
         if input_1 < 0:
             print('Enter a Positive Number.')
             continue
 
+        # check 'BOSS'
+        for key, value in data:
+            if input_1 == key:
+                if input_1 == 0:
+                    if input_1 == value:
+                        print('BOSS')
+                        # check = input_1
+                        # if check == 100:
+                        #     print('BOSS')
+                    # if check == value:
+                    #     print('BOSS')
+
+
+    # check garbage input
     except ValueError:
         print('You Have to Write a Positive Integer; try again!')
+
 
 
 
