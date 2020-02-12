@@ -1,6 +1,8 @@
 import random
 
 
+""" Module-1: Randomly Shuffling """
+
 # assigning initial values
 boss = 100
 robber = 90
@@ -15,12 +17,43 @@ points = {
     3: thief
 }
 
-# shuffling items
-keys = list(points.keys())
-random.shuffle(keys)
+# shuffling keys randomly
+items = list(points.items())
+random.shuffle(items)
 
-for key in keys:
-    print(key)
+for key, value in items:
+    print('{}: {}'.format(key, value))
+    # print('\n')
 
 
+""" Module-2: Input in a Session """
+
+# session
+process = 4
+
+while process <= 4:
+    input_1 = int(input('\nEnter a Number: '))
+
+    # if input_1 < 0 and type(input_1) == 'str':
+    #     print('Enter a Positive Number.')
+    #     break
+    #
+    # if input_1 == 0:
+    #     print('Boss')
+
+
+
+# process = 3
+# step = 1
+#
+# while process <= 3:
+#     # for steps in range(step):
+#         n = int(input('Enter an Integer: \n'))
+#         if n <= 10:
+#             for i in range(n):
+#                 print(i)
+#         else:
+#             print(n,'is greater than 10')
+#
+#         print('Press', 0, 'for Stop')
 
