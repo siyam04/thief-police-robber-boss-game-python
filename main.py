@@ -18,20 +18,37 @@ points = {
 }
 
 # shuffling keys randomly
-data = list(points.items())
-random.shuffle(data)
+points_data = list(points.items())
+random.shuffle(points_data)
 
-for key, value in data:
+for key, value in points_data:
     print('{}: {}'.format(key, value))
-    # print('\n')
 
 
 """ Module-2: Input in a Session """
 
+
+# Culprit calling method
+def finding_culprit():
+    return print('Finding...')
+    # for key, value in points_data:
+        # print(key, value)
+        # if value == points[3]:
+        #     print(value)
+            # thief_detected = value
+            # return print(thief_detected)
+
+
+# Police calling method
+def calling_police():
+    print("POINT: {}, I'm Police. Finding the Thief...".format(points[2]))
+    return finding_culprit()
+
+
 # session
 process = 0
 
-while process < len(data):
+while process < len(points_data):
     try:
         # main input
         input_1 = int(input('\nEnter a Number: '))
@@ -41,17 +58,28 @@ while process < len(data):
             print('Enter a Positive Number.')
             continue
 
-        # check 'BOSS'
+        # check input in data
         if input_1 in points:
-            print(points[input_1])
+            # check input is 'BOSS'
+            if input_1 == 0:
+                print("POINT: {}, I'm BOSS, Hey Police, Find the Thief...".format(points[input_1]))
+                calling_police()
+
+
+
+
+
+
+            # elif input_1 == 1:
+            #     print('You Are ROBBER')
+            # elif input_1 == 2:
+            #     print('You Are POLICE')
+            # else:
+            #     print('You Are THIEF')
 
     # check garbage input
     except ValueError:
         print('You Have to Write a Positive Integer; try again!')
-
-
-
-
 
 
 
