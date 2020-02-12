@@ -32,14 +32,21 @@ for key, value in items:
 process = 4
 
 while process <= 4:
-    input_1 = int(input('\nEnter a Number: '))
+    try:
+        input_1 = int(input('\nEnter a Number: '))
 
-    # if input_1 < 0 and type(input_1) == 'str':
-    #     print('Enter a Positive Number.')
-    #     break
-    #
-    # if input_1 == 0:
-    #     print('Boss')
+        if input_1 < 0:
+            print('Enter a Positive Number.')
+            continue
+
+    except ValueError:
+        print('You Have to Write a Positive Integer; try again!')
+
+
+
+
+
+
 
 
 
