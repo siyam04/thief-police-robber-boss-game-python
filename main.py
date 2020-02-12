@@ -29,9 +29,9 @@ for key, value in data:
 """ Module-2: Input in a Session """
 
 # session
-process = 4
+process = 0
 
-while process <= 4:
+while process < len(data):
     try:
         # main input
         input_1 = int(input('\nEnter a Number: '))
@@ -42,17 +42,8 @@ while process <= 4:
             continue
 
         # check 'BOSS'
-        for key, value in data:
-            if input_1 == key:
-                if input_1 == 0:
-                    if input_1 == value:
-                        print('BOSS')
-                        # check = input_1
-                        # if check == 100:
-                        #     print('BOSS')
-                    # if check == value:
-                    #     print('BOSS')
-
+        if input_1 in points:
+            print(points[input_1])
 
     # check garbage input
     except ValueError:
