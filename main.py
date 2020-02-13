@@ -3,29 +3,15 @@ import random
 
 """ Module-1: Randomly Shuffling """
 
-# Assigning initial values
-boss = 100
-robber = 90
-police = 80
-thief = 0
+# Shuffling indexes randomly
+points = [100, 90, 80, 0]
+random.shuffle(points)
 
-# Ordering characters
-points = {
-    0: boss,
-    1: robber,
-    2: police,
-    3: thief
-}
-
-# Shuffling keys randomly
-points_data = list(points.items())
-random.shuffle(points_data)
-
-for key, value in points_data:
-    print('{}: {}'.format(key, value))
+for i, v in enumerate(points):
+    print('{}: {}'.format(i, v))
 
 
-""" Module-2: Input in a Session """
+""" Module-3: Finding Culprit """
 
 
 # Police calling method
@@ -33,7 +19,7 @@ def calling_police():
     police_input = int(input("\nPOLICE: I'm finding who is THIEF: "))
 
     # Searching from random list
-    for i, v in enumerate(points_data):
+    for i, v in enumerate(points):
         if police_input == i:
             print('\npolice inputted: {} | culprit id: {}'.format(police_input, i))
             if points[i] == 90:
@@ -42,10 +28,12 @@ def calling_police():
                 print('*THIEF found! (POINT: {})'.format(points[i]))
 
 
+""" Module-2: Input in a Session """
+
 # Session
 process = 0
 
-while process < len(points_data):
+while process < len(points):
     try:
         # Main input
         print('\n---- GAME MENU ----')
@@ -57,7 +45,7 @@ while process < len(points_data):
             continue
 
         # Check input in data
-        for i, v in enumerate(points_data):
+        for i, v in enumerate(points):
             if input_1 == i:
                 # Check input is BOSS or not
                 if points[input_1] == 100:
@@ -65,12 +53,8 @@ while process < len(points_data):
                     calling_police()
                     # break
 
-            # elif input_1 == 1:
-            #     print('You Are ROBBER')
-            # elif input_1 == 2:
-            #     print('You Are POLICE')
-            # else:
-            #     print('You Are THIEF')
+                elif points[input_1] == 80:
+                    print('I am POLICE')
 
     # Check garbage input
     except ValueError:
