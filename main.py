@@ -3,13 +3,13 @@ import random
 
 """ Module-1: Randomly Shuffling """
 
-# assigning initial values
+# Assigning initial values
 boss = 100
 robber = 90
 police = 80
 thief = 0
 
-# ordering characters
+# Ordering characters
 points = {
     0: boss,
     1: robber,
@@ -17,7 +17,7 @@ points = {
     3: thief
 }
 
-# shuffling keys randomly
+# Shuffling keys randomly
 points_data = list(points.items())
 random.shuffle(points_data)
 
@@ -28,62 +28,39 @@ for key, value in points_data:
 """ Module-2: Input in a Session """
 
 
-# Culprit calling method
-def finding_culprit():
-    return print('Finding...')
-    # for key, value in points_data:
-        # print(key, value)
-        # if value == points[3]:
-        #     print(value)
-            # thief_detected = value
-            # return print(thief_detected)
-
-
 # Police calling method
 def calling_police():
-    police_input = int(input('\nHey Police, Find Who is Thief or Robber: '))
+    police_input = int(input("\nPOLICE: I'm finding who is THIEF: "))
 
-    if police_input in points:
-        for key, value in points.items():
-            if police_input == key:
-                print('\nPolice Inputted: {} | Culprit ID: {}'.format(police_input, key))
-                if points[key] == 90:
-                    print('Robber Found! (POINT: {})'.format(points[key]))
-                elif points[key] == 0:
-                    print('Thief Found! (POINT: {})'.format(points[key]))
+    # Searching from random list
+    for i, v in enumerate(points_data):
+        if police_input == i:
+            print('\npolice inputted: {} | culprit id: {}'.format(police_input, i))
+            if points[i] == 90:
+                print('*ROBBER found! (POINT: {})'.format(points[i]))
+            elif points[i] == 0:
+                print('*THIEF found! (POINT: {})'.format(points[i]))
 
 
-    # for key, value in points_data:
-        # print(key, value)
-
-    # if police_input in points:
-    #     if police_input == points[police_input]:
-    #         return print('ROBBER', police_input)
-    #     elif police_input == points[police_input]:
-    #         return print('THIEF', police_input)
-        # if value[police_input] == points[1]:
-        #     print('ROBBER', value[police_input])
-        # elif value[police_input] == points[3]:
-        #     print('THIEF', value[police_input])
-
-# session
+# Session
 process = 0
 
 while process < len(points_data):
     try:
         # main input
-        input_1 = int(input('\nEnter a Number: '))
+        print('\n---- GAME MENU ----')
+        input_1 = int(input('\nenter a number: '))
 
         # check garbage input
         if input_1 < 0:
-            print('Enter a Positive Number.')
+            print('enter a positive number.')
             continue
 
         # check input in data
         if input_1 in points:
             # check input is 'BOSS'
             if input_1 == 0:
-                print("(POINT: {}) I'm BOSS, Hey Police, Find the Thief...".format(points[input_1]))
+                print("\nBOSS: hey police, find the THIEF...".format(points[input_1]))
                 calling_police()
                 # break
 
@@ -96,24 +73,7 @@ while process < len(points_data):
 
     # check garbage input
     except ValueError:
-        print('You Have to Write a Positive Integer; try again!')
+        print("you've to write a positive integer; try again!")
 
 
-
-
-
-
-# process = 3
-# step = 1
-#
-# while process <= 3:
-#     # for steps in range(step):
-#         n = int(input('Enter an Integer: \n'))
-#         if n <= 10:
-#             for i in range(n):
-#                 print(i)
-#         else:
-#             print(n,'is greater than 10')
-#
-#         print('Press', 0, 'for Stop')
 
