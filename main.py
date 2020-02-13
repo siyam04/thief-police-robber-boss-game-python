@@ -11,28 +11,26 @@ for i, v in enumerate(points):
     print('{}: {}'.format(i, v))
 
 
-""" Module-3: Finding Thief """
+""" Module-3: Finding Thief, Summation Methods """
 
 
 # Police calling method
+
+def calc_points():
+    pass
+
+
 def calling_police():
-    robber = points.index(60)
-    thief = points.index(0)
+    # Detecting Thief
+    temp_points = [e for e in points if e not in (100, 80)]
+    random.shuffle(temp_points)
 
-    print('{}'.format(robber))
-    print('{}'.format(thief))
-
-    # Sometimes Detecting Thieves (BUG)
-    # for i in points:
-    #     if i == thief:
-    #         print('\nSuccess! THIEF is number {}'.format(i))
-    #     else:
-    #         print('Not Found!')
-
-    # Always Detecting Thieves
-    for i, v in enumerate(points):
-        if i == thief:
-            print('\nSuccess! THIEF is number {}'.format(i))
+    print(temp_points)
+    if temp_points[0] == 0:
+        print('\nPOLICE: Success! THIEF Found, ')
+        print('sum()')
+    else:
+        print('\nPOLICE: Not Found')
 
 
 """ Module-2: Input in a Session """
@@ -51,6 +49,10 @@ while process < len(points):
             print('enter a positive number.')
             continue
 
+        if input_1 > len(points):
+            print('index not in list')
+            continue
+
         # Check input in data
         for i, v in enumerate(points):
             if input_1 == i:
@@ -63,6 +65,12 @@ while process < len(points):
 
                 elif points[input_1] == 80:
                     print('I am POLICE')
+
+                elif points[input_1] == 60:
+                    print('ROBBER point')
+
+                elif points[input_1] == 0:
+                    print('THIEF point')
 
     # Check garbage input
     except ValueError:
