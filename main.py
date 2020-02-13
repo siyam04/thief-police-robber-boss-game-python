@@ -41,7 +41,7 @@ process = 0
 while process < len(points):
     try:
         # Main input
-        print('\n---- GAME MENU ----')
+        print('\n++++++++ SELECT MENU ++++++++')
         input_1 = int(input('\nenter a number: '))
 
         # Check garbage input
@@ -61,7 +61,7 @@ while process < len(points):
 
                     print("\nBOSS: hey police, which number is thief?")
                     calling_police()
-                    # break
+                    exit()
 
                 elif points[input_1] == 80:
                     print('I am POLICE')
@@ -71,6 +71,8 @@ while process < len(points):
 
                 elif points[input_1] == 0:
                     print('THIEF point')
+
+
 
     # Check garbage input
     except ValueError:
