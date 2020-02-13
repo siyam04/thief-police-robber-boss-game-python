@@ -4,7 +4,7 @@ import random
 """ Module-1: Randomly Shuffling """
 
 # Shuffling indexes randomly
-points = [100, 90, 80, 0]
+points = [100, 80, 60, 0]
 random.shuffle(points)
 
 for i, v in enumerate(points):
@@ -16,16 +16,19 @@ for i, v in enumerate(points):
 
 # Police calling method
 def calling_police():
-    police_input = int(input("\nPOLICE: I'm finding who is THIEF: "))
+    robber = points.index(60)
+    thief = points.index(0)
 
-    # Searching from random list
-    for i, v in enumerate(points):
-        if police_input == i:
-            print('\npolice inputted: {} | culprit id: {}'.format(police_input, i))
-            if points[i] == 90:
-                print('*ROBBER found! (POINT: {})'.format(points[i]))
-            elif points[i] == 0:
-                print('*THIEF found! (POINT: {})'.format(points[i]))
+    print('Choose a number to detect thief')
+    print('{}'.format(robber))
+    print('{}'.format(thief))
+
+    police_input = int(input("\nPOLICE: I'm choosing: "))
+
+    if police_input == thief:
+        print('THIEF detected!')
+    elif police_input == robber:
+        print('ROBBER detected!')
 
 
 """ Module-2: Input in a Session """
@@ -49,6 +52,7 @@ while process < len(points):
             if input_1 == i:
                 # Check input is BOSS or not
                 if points[input_1] == 100:
+
                     print("\nBOSS: hey police, find the THIEF...")
                     calling_police()
                     # break
