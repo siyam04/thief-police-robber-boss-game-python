@@ -41,9 +41,26 @@ def finding_culprit():
 
 # Police calling method
 def calling_police():
-    print("POINT: {}, I'm Police. Finding the Thief...".format(points[2]))
-    return finding_culprit()
+    police_input = int(input('\nHey Police, Find Who is Thief or Robber: '))
 
+    if police_input in points:
+        for key, value in points.items():
+            if police_input == key:
+                print('Police Inputted: {} | Culprit ID: {}'.format(police_input, key))
+                print('Culprit Found!')
+
+    # for key, value in points_data:
+        # print(key, value)
+
+    # if police_input in points:
+    #     if police_input == points[police_input]:
+    #         return print('ROBBER', police_input)
+    #     elif police_input == points[police_input]:
+    #         return print('THIEF', police_input)
+        # if value[police_input] == points[1]:
+        #     print('ROBBER', value[police_input])
+        # elif value[police_input] == points[3]:
+        #     print('THIEF', value[police_input])
 
 # session
 process = 0
@@ -62,13 +79,9 @@ while process < len(points_data):
         if input_1 in points:
             # check input is 'BOSS'
             if input_1 == 0:
-                print("POINT: {}, I'm BOSS, Hey Police, Find the Thief...".format(points[input_1]))
+                print("(POINT: {}) I'm BOSS, Hey Police, Find the Thief...".format(points[input_1]))
                 calling_police()
-
-
-
-
-
+                # break
 
             # elif input_1 == 1:
             #     print('You Are ROBBER')
