@@ -47,22 +47,23 @@ process = 0
 
 while process < len(points_data):
     try:
-        # main input
+        # Main input
         print('\n---- GAME MENU ----')
         input_1 = int(input('\nenter a number: '))
 
-        # check garbage input
+        # Check garbage input
         if input_1 < 0:
             print('enter a positive number.')
             continue
 
-        # check input in data
-        if input_1 in points:
-            # check input is 'BOSS'
-            if input_1 == 0:
-                print("\nBOSS: hey police, find the THIEF...".format(points[input_1]))
-                calling_police()
-                # break
+        # Check input in data
+        for i, v in enumerate(points_data):
+            if input_1 == i:
+                # Check input is BOSS or not
+                if points[input_1] == 100:
+                    print("\nBOSS: hey police, find the THIEF...")
+                    calling_police()
+                    # break
 
             # elif input_1 == 1:
             #     print('You Are ROBBER')
@@ -71,7 +72,7 @@ while process < len(points_data):
             # else:
             #     print('You Are THIEF')
 
-    # check garbage input
+    # Check garbage input
     except ValueError:
         print("you've to write a positive integer; try again!")
 
