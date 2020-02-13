@@ -11,7 +11,7 @@ for i, v in enumerate(points):
     print('{}: {}'.format(i, v))
 
 
-""" Module-3: Finding Culprit """
+""" Module-3: Finding Thief """
 
 
 # Police calling method
@@ -22,6 +22,14 @@ def calling_police():
     print('{}'.format(robber))
     print('{}'.format(thief))
 
+    # Sometimes Detecting Thieves (BUG)
+    # for i in points:
+    #     if i == thief:
+    #         print('\nSuccess! THIEF is number {}'.format(i))
+    #     else:
+    #         print('Not Found!')
+
+    # Always Detecting Thieves
     for i, v in enumerate(points):
         if i == thief:
             print('\nSuccess! THIEF is number {}'.format(i))
