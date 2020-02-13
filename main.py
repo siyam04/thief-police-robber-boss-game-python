@@ -19,16 +19,12 @@ def calling_police():
     robber = points.index(60)
     thief = points.index(0)
 
-    print('Choose a number to detect thief')
     print('{}'.format(robber))
     print('{}'.format(thief))
 
-    police_input = int(input("\nPOLICE: I'm choosing: "))
-
-    if police_input == thief:
-        print('THIEF detected!')
-    elif police_input == robber:
-        print('ROBBER detected!')
+    for i, v in enumerate(points):
+        if i == thief:
+            print('\nSuccess! THIEF is number {}'.format(i))
 
 
 """ Module-2: Input in a Session """
@@ -53,7 +49,7 @@ while process < len(points):
                 # Check input is BOSS or not
                 if points[input_1] == 100:
 
-                    print("\nBOSS: hey police, find the THIEF...")
+                    print("\nBOSS: hey police, which number is thief?")
                     calling_police()
                     # break
 
