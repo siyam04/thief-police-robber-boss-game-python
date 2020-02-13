@@ -46,8 +46,12 @@ def calling_police():
     if police_input in points:
         for key, value in points.items():
             if police_input == key:
-                print('Police Inputted: {} | Culprit ID: {}'.format(police_input, key))
-                print('Culprit Found!')
+                print('\nPolice Inputted: {} | Culprit ID: {}'.format(police_input, key))
+                if points[key] == 90:
+                    print('Robber Found! (POINT: {})'.format(points[key]))
+                elif points[key] == 0:
+                    print('Thief Found! (POINT: {})'.format(points[key]))
+
 
     # for key, value in points_data:
         # print(key, value)
